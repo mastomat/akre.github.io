@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis Akreditasi Program Studi - UIN Jurai Siwo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A880',
+                            green: '#005C53',
+                            darkGreen: '#042940',
+                            lightBg: '#F9FAFB',
+                            darkBg: '#0B132B'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'ui-serif', 'serif'],
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Memaksa border-radius ke 0 untuk semua elemen */
+        * {
+            border-radius: 0px !important;
+        }
+        /* Custom smooth scroll dan transition */
+        html {
+            scroll-behavior: smooth;
+        }
+        .transition-all-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-brand-lightBg text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans transition-all-custom antialiased">
+
+    <!-- TOP BAR / NAVIGATION -->
+    <nav class="border-b-2 border-slate-900 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-brand-green text-white p-2.5 flex items-center justify-center border-r-2 border-brand-gold">
+                        <span class="font-bold text-xl tracking-wider">UIN</span>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-brand-gold font-bold block">Sistem Informasi Akreditasi</span>
+                        <h1 class="text-base sm:text-lg font-bold tracking-tight text-brand-darkGreen dark:text-slate-100">UIN JURAI SIWO LAMPUNG</h1>
+                    </div>
+                </div>
+
+                <!-- Dark Mode & Actions -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 border border-slate-900 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all-custom text-slate-700 dark:text-slate-300" title="Ubah Tema">
+                        <i data-lucide="moon" id="theme-icon-dark" class="hidden h-5 w-5"></i>
+                        <i data-lucide="sun" id="theme-icon-light" class="h-5 w-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER / HERO -->
+    <header class="relative overflow-hidden bg-brand-darkGreen text-white py-16 px-4 border-b-4 border-brand-gold">
+        <!-- Abstract Background Lines (Decorative) -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(#C5A880 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <span class="inline-block bg-brand-gold text-slate-950 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-4">DATA TERBARU 2026</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-serif mb-4 leading-tight">
+                Infografis Akreditasi<br class="hidden sm:inline" /> Program Studi
+            </h2>
+            <p class="max-w-2xl text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                Transparansi mutu pendidikan tinggi di lingkungan UIN Jurai Siwo Lampung. Memantau peringkat kelayakan program studi secara periodik demi pencapaian standar mutu nasional yang unggul.
+            </p>
+            
+            <!-- Kolom Statistik yang Diperbaiki menjadi 5 Kolom agar Cocok (Total 28 = 6 + 6 + 2 + 14) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-8 pt-8 border-t border-slate-700">
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold text-brand-gold block" id="stat-total">0</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400">Total Prodi</span>
+                </div>
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold text-emerald-400 block" id="stat-unggul">0</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400">Peringkat Unggul</span>
+                </div>
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold text-sky-400 block" id="stat-baiksekali">0</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400">Baik Sekali</span>
+                </div>
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold text-amber-400 block" id="stat-baik">0</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400">Baik</span>
+                </div>
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold text-slate-300 block" id="stat-terakreditasi">0</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400">Terakreditasi</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- FILTER & KONTROL -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 mb-8 transition-all-custom">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <!-- Search & Filter Tab -->
+                <div class="flex-1">
+                    <label for="search-input" class="block text-xs uppercase tracking-widest font-bold text-slate-400 dark:text-slate-500 mb-2">Cari Program Studi</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+                            <i data-lucide="search" class="h-5 w-5"></i>
+                        </span>
+                        <input type="text" id="search-input" class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-brand-gold transition-all-custom text-sm" placeholder="Ketik nama prodi, jenjang (S1, S2, S3), atau kode prodi...">
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="w-full sm:w-auto">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-slate-400 dark:text-slate-500 mb-2">Peringkat Akreditasi</label>
+                        <select id="filter-akreditasi" class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 py-3 px-4 focus:outline-none focus:border-brand-gold text-sm">
+                            <option value="ALL">Semua Peringkat</option>
+                            <option value="Unggul">Unggul</option>
+                            <option value="Baik Sekali">Baik Sekali</option>
+                            <option value="Baik">Baik</option>
+                            <option value="Terakreditasi">Terakreditasi</option>
+                        </select>
+                    </div>
+
+                    <div class="w-full sm:w-auto">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-slate-400 dark:text-slate-500 mb-2">Jenjang</label>
+                        <select id="filter-jenjang" class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 py-3 px-4 focus:outline-none focus:border-brand-gold text-sm">
+                            <option value="ALL">Semua Jenjang</option>
+                            <option value="S1">S1 (Sarjana)</option>
+                            <option value="S2">S2 (Magister)</option>
+                            <option value="S3">S3 (Doktor)</option>
+                            <option value="Profesi">Profesi</option>
+                        </select>
+                    </div>
+
+                    <div class="w-full sm:w-auto self-end">
+                        <button id="reset-filter" class="w-full py-3 px-6 border border-slate-900 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-semibold flex items-center justify-center space-x-2 transition-all-custom">
+                            <i data-lucide="rotate-ccw" class="h-4 w-4"></i>
+                            <span>Reset</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS VISUALS (SMALL INFOGRAPHICS PANEL) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+            <!-- Porsi Akreditasi -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="font-serif text-lg font-bold text-brand-darkGreen dark:text-slate-100 mb-1">Porsi Mutu Prodi</h3>
+                    <p class="text-xs text-slate-400 mb-4">Penyebaran status akreditasi saat ini.</p>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>UNGGUL</span>
+                            <span id="pct-unggul">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-slate-800 h-2">
+                            <div id="bar-unggul" class="bg-emerald-500 h-full transition-all duration-1000" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>BAIK SEKALI</span>
+                            <span id="pct-baiksekali">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-slate-800 h-2">
+                            <div id="bar-baiksekali" class="bg-sky-500 h-full transition-all duration-1000" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>BAIK</span>
+                            <span id="pct-baik">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-slate-800 h-2">
+                            <div id="bar-baik" class="bg-amber-500 h-full transition-all duration-1000" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>TERAKREDITASI</span>
+                            <span id="pct-terakreditasi">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-slate-800 h-2">
+                            <div id="bar-terakreditasi" class="bg-slate-400 h-full transition-all duration-1000" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analisis Kadaluarsa / Expired Monitoring -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="font-serif text-lg font-bold text-brand-darkGreen dark:text-slate-100 mb-1">Masa Berlaku</h3>
+                    <p class="text-xs text-slate-400 mb-4">Status pemantauan siklus akreditasi BAN-PT/LAM.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-50 dark:bg-slate-950 p-4 border border-slate-200 dark:border-slate-800 text-center">
+                        <span class="text-xs text-slate-400 block mb-1">Perlu Re-Akreditasi</span>
+                        <span class="text-2xl font-bold text-rose-500" id="count-expired">0</span>
+                        <span class="text-[10px] text-slate-400 block mt-1">(Tanggal kosong)</span>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-950 p-4 border border-slate-200 dark:border-slate-800 text-center">
+                        <span class="text-xs text-slate-400 block mb-1">Aktif & Aman</span>
+                        <span class="text-2xl font-bold text-emerald-500" id="count-active">0</span>
+                        <span class="text-[10px] text-slate-400 block mt-1">(Hingga 2027 - 2030)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info UIN Jurai Siwo -->
+            <div class="bg-brand-green text-white p-6 border-l-4 border-brand-gold flex flex-col justify-between">
+                <div>
+                    <h3 class="font-serif text-lg font-bold text-brand-gold mb-2">UIN Jurai Siwo Lampung</h3>
+                    <p class="text-xs text-slate-200 leading-relaxed">
+                        Menyelenggarakan integrasi keilmuan keislaman dan sains bernilai kearifan lokal. Penjaminan mutu internal adalah komitmen kami untuk mencetak lulusan berakhlak mulia dan profesional.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-emerald-800 flex items-center justify-between text-xs text-brand-gold">
+                    <span>Lembaga Penjaminan Mutu (LPM)</span>
+                    <i data-lucide="award" class="h-5 w-5 animate-pulse"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIST CARDS & TABLE CONTROLLER -->
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="font-serif text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                <span>Daftar Mutu Program Studi</span>
+                <span id="filtered-count" class="text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 py-1 px-3 border border-slate-300 dark:border-slate-700">0</span>
+            </h3>
+
+            <!-- View Switcher -->
+            <div class="flex items-center space-x-2">
+                <button id="view-grid" class="p-2 border border-slate-900 dark:border-slate-700 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 transition-all-custom" title="Tampilan Kartu">
+                    <i data-lucide="layout-grid" class="h-4 w-4"></i>
+                </button>
+                <button id="view-table" class="p-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all-custom" title="Tampilan Tabel">
+                    <i data-lucide="list" class="h-4 w-4"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- LISTINGS: GRID VIEW -->
+        <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-300">
+            <!-- Dinamis via JS -->
+        </div>
+
+        <!-- LISTINGS: TABLE VIEW -->
+        <div id="table-container" class="hidden overflow-x-auto border border-slate-900 dark:border-slate-800 bg-white dark:bg-slate-900 transition-opacity duration-300">
+            <table class="min-w-full divide-y divide-slate-300 dark:divide-slate-800">
+                <thead class="bg-slate-50 dark:bg-slate-950">
+                    <tr>
+                        <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 sm:pl-6 w-16">No.</th>
+                        <th scope="col" class="px-3 py-3.5 text-left text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Kode & Program Studi</th>
+                        <th scope="col" class="px-3 py-3.5 text-left text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Jenjang</th>
+                        <th scope="col" class="px-3 py-3.5 text-left text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Status Akreditasi</th>
+                        <th scope="col" class="px-3 py-3.5 class text-left text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Masa Berlaku</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body" class="divide-y divide-slate-200 dark:divide-slate-800">
+                    <!-- Dinamis via JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- NO DATA FOUND -->
+        <div id="no-data" class="hidden text-center py-16 bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800">
+            <i data-lucide="alert-circle" class="h-12 w-12 mx-auto text-slate-400 mb-4"></i>
+            <h4 class="font-serif text-lg font-bold mb-1">Prodi Tidak Ditemukan</h4>
+            <p class="text-sm text-slate-400">Coba ubah kata kunci pencarian atau filter yang Anda gunakan.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 px-4 mt-20 border-t-2 border-slate-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start space-x-2 text-white font-bold mb-2">
+                    <span class="bg-brand-gold text-slate-950 px-2 py-0.5 text-xs font-serif">LPM</span>
+                    <span>UIN Jurai Siwo Lampung</span>
+                </div>
+                <p class="text-xs">Sistem Pemantauan Akreditasi Terbuka & Real-time.</p>
+            </div>
+            <div class="text-xs text-center md:text-right space-y-1">
+                <p>&copy; 2026 UIN Jurai Siwo Lampung. Hak Cipta Dilindungi.</p>
+                <p>Dikembangkan oleh Unit Mutu Teknologi & Penjaminan Informasi Akademik.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // DATASET dari tabel HTML yang diinput user
+        const prodiData = [
+            { id: "74134", nama: "S2 Ekonomi Syariah", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "76231", nama: "S1 Ilmu Al-Quran dan Tafsir", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "62201", nama: "S1 Akuntansi Syariah", akreditasi: "Baik Sekali", hingga: "07 Februari 2030" },
+            { id: "74230", nama: "S1 Hukum Keluarga Islam (Ahwal Syakhshiyyah)", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "76201", nama: "S1 Manajemen Haji dan Umroh", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "61206", nama: "S1 Perbankan Syariah", akreditasi: "Baik Sekali", hingga: "29 Desember 2027" },
+            { id: "86906", nama: "Profesi Pendidikan Profesi Guru", akreditasi: "Baik", hingga: "04 Maret 2030" },
+            { id: "70232", nama: "S1 Bimbingan Penyuluhan Islam", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "70233", nama: "S1 Komunikasi dan Penyiaran Islam", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "84025", nama: "S1 Tadris Biologi", akreditasi: "Baik Sekali", hingga: "04 Maret 2030" },
+            { id: "86032", nama: "S3 Pendidikan Agama Islam", akreditasi: "Baik", hingga: "01 Januari 9999" }, // Spesial Case (Tanggal Sistem)
+            { id: "74234", nama: "S1 Hukum Ekonomi Syariah (Muamalah)", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "88104", nama: "S2 Pendidikan Bahasa Arab", akreditasi: "Baik Sekali", hingga: "01 Oktober 2030" },
+            { id: "79203", nama: "S1 Bahasa dan Sastra Arab", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "84202", nama: "S1 Tadris Matematika", akreditasi: "Unggul", hingga: "30 Desember 2029" },
+            { id: "88204", nama: "S1 Pendidikan Bahasa Arab", akreditasi: "Unggul", hingga: "01 Oktober 2030" },
+            { id: "86108", nama: "S2 Pendidikan Agama Islam", akreditasi: "Baik Sekali", hingga: "01 Oktober 2030" },
+            { id: "76235", nama: "S1 Ilmu Hadis", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "60202", nama: "S1 Ekonomi Syariah", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "84207", nama: "S1 Tadris IPS", akreditasi: "Unggul", hingga: "19 Desember 2029" },
+            { id: "74235", nama: "S1 Hukum Tatanegara (Siyasah Syar'iyyah)", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "76005", nama: "S3 Ilmu Syariah", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "70231", nama: "S1 Pengembangan Masyarakat Islam", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "86233", nama: "S1 Pendidikan Islam Anak Usia Dini", akreditasi: "Baik Sekali", hingga: "04 Maret 2030" },
+            { id: "88203", nama: "S1 Tadris Bahasa Inggris", akreditasi: "Unggul", hingga: "22 Oktober 2030" },
+            { id: "86208", nama: "S1 Pendidikan Agama Islam", akreditasi: "Unggul", hingga: "22 Oktober 2030" },
+            { id: "74130", nama: "S2 Hukum Keluarga Islam (Ahwal Syakhshiyyah)", akreditasi: "Terakreditasi", hingga: "" },
+            { id: "86232", nama: "S1 Pendidikan Guru Madrasah Ibtidaiyah", akreditasi: "Unggul", hingga: "04 Desember 2029" }
+        ];
+
+        // Memecah Jenjang & Nama Utama
+        const processedData = prodiData.map(item => {
+            let jenjang = "S1";
+            let namaBersih = item.nama;
+
+            if (item.nama.startsWith("S3")) {
+                jenjang = "S3";
+                namaBersih = item.nama.replace("S3 ", "");
+            } else if (item.nama.startsWith("S2")) {
+                jenjang = "S2";
+                namaBersih = item.nama.replace("S2 ", "");
+            } else if (item.nama.startsWith("S1")) {
+                jenjang = "S1";
+                namaBersih = item.nama.replace("S1 ", "");
+            } else if (item.nama.startsWith("Profesi")) {
+                jenjang = "Profesi";
+                namaBersih = item.nama.replace("Profesi ", "");
+            }
+
+            return {
+                ...item,
+                jenjang,
+                namaBersih
+            };
+        });
+
+        // DOM Elements
+        const gridContainer = document.getElementById('grid-container');
+        const tableContainer = document.getElementById('table-container');
+        const tableBody = document.getElementById('table-body');
+        const searchInput = document.getElementById('search-input');
+        const filterAkreditasi = document.getElementById('filter-akreditasi');
+        const filterJenjang = document.getElementById('filter-jenjang');
+        const resetBtn = document.getElementById('reset-filter');
+        const filteredCountEl = document.getElementById('filtered-count');
+        const noDataEl = document.getElementById('no-data');
+
+        // View Switches
+        const btnGrid = document.getElementById('view-grid');
+        const btnTable = document.getElementById('view-table');
+        let currentView = 'grid'; // grid | table
+
+        // State filter
+        let searchTerm = "";
+        let filterAkredVal = "ALL";
+        let filterJenjangVal = "ALL";
+
+        // Init App
+        function init() {
+            lucide.createIcons();
+            hitungStatistik();
+            render();
+            setupTheme();
+        }
+
+        // Hitung data awal untuk Dashboard Statistik
+        function hitungStatistik() {
+            const total = processedData.length;
+            const unggul = processedData.filter(p => p.akreditasi === "Unggul").length;
+            const baikSekali = processedData.filter(p => p.akreditasi === "Baik Sekali").length;
+            const baik = processedData.filter(p => p.akreditasi === "Baik").length;
+            const terakreditasi = processedData.filter(p => p.akreditasi === "Terakreditasi").length;
+
+            const expired = processedData.filter(p => p.hingga.trim() === "").length;
+            const active = total - expired;
+
+            // Update Angka dengan Animasi Sederhana (Sekarang mencakup peringkat "Baik")
+            animateNumber('stat-total', total);
+            animateNumber('stat-unggul', unggul);
+            animateNumber('stat-baiksekali', baikSekali);
+            animateNumber('stat-baik', baik);
+            animateNumber('stat-terakreditasi', terakreditasi);
+
+            document.getElementById('count-expired').textContent = expired;
+            document.getElementById('count-active').textContent = active;
+
+            // Update Progress Bar
+            const pctUnggul = Math.round((unggul / total) * 100);
+            const pctBaikSekali = Math.round((baikSekali / total) * 100);
+            const pctBaik = Math.round((baik / total) * 100);
+            const pctTerakreditasi = Math.round((terakreditasi / total) * 100);
+
+            document.getElementById('pct-unggul').textContent = pctUnggul + "%";
+            document.getElementById('pct-baiksekali').textContent = pctBaikSekali + "%";
+            document.getElementById('pct-baik').textContent = pctBaik + "%";
+            document.getElementById('pct-terakreditasi').textContent = pctTerakreditasi + "%";
+
+            setTimeout(() => {
+                document.getElementById('bar-unggul').style.width = pctUnggul + "%";
+                document.getElementById('bar-baiksekali').style.width = pctBaikSekali + "%";
+                document.getElementById('bar-baik').style.width = pctBaik + "%";
+                document.getElementById('bar-terakreditasi').style.width = pctTerakreditasi + "%";
+            }, 300);
+        }
+
+        // Animasi counter angka sederhana
+        function animateNumber(id, target) {
+            let current = 0;
+            const element = document.getElementById(id);
+            if (!element) return;
+            const duration = 1000;
+            const stepTime = Math.abs(Math.floor(duration / target));
+            
+            const timer = setInterval(() => {
+                current += 1;
+                element.textContent = current;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, stepTime || 30);
+        }
+
+        // Return badge color class
+        function getAkreditasiStyle(akred) {
+            switch (akred) {
+                case 'Unggul':
+                    return {
+                        bg: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border-emerald-600',
+                        badge: 'bg-emerald-600 text-white'
+                    };
+                case 'Baik Sekali':
+                    return {
+                        bg: 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-400 border-sky-600',
+                        badge: 'bg-sky-600 text-white'
+                    };
+                case 'Baik':
+                    return {
+                        bg: 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-500',
+                        badge: 'bg-amber-500 text-slate-950'
+                    };
+                default: // Terakreditasi
+                    return {
+                        bg: 'bg-slate-50 dark:bg-slate-800/40 text-slate-700 dark:text-slate-300 border-slate-400',
+                        badge: 'bg-slate-500 text-white'
+                    };
+            }
+        }
+
+        // Return Jenjang color class
+        function getJenjangStyle(jenjang) {
+            switch (jenjang) {
+                case 'S3':
+                    return 'bg-purple-100 text-purple-900 border-purple-300 dark:bg-purple-950 dark:text-purple-300 dark:border-purple-800';
+                case 'S2':
+                    return 'bg-blue-100 text-blue-900 border-blue-300 dark:bg-blue-950 dark:text-blue-300 dark:border-blue-800';
+                case 'S1':
+                    return 'bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800';
+                default:
+                    return 'bg-orange-100 text-orange-900 border-orange-300 dark:bg-orange-950 dark:text-orange-300 dark:border-orange-800';
+            }
+        }
+
+        // FILTER & SEARCH LOGIC
+        function filterData() {
+            return processedData.filter(prodi => {
+                const matchSearch = prodi.nama.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                                    prodi.id.includes(searchTerm);
+                
+                const matchAkred = filterAkredVal === "ALL" || prodi.akreditasi === filterAkredVal;
+                const matchJenjang = filterJenjangVal === "ALL" || prodi.jenjang === filterJenjangVal;
+
+                return matchSearch && matchAkred && matchJenjang;
+            });
+        }
+
+        // RENDER DATA TO UI
+        function render() {
+            const filtered = filterData();
+            filteredCountEl.textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                gridContainer.classList.add('hidden');
+                tableContainer.classList.add('hidden');
+                noDataEl.classList.remove('hidden');
+                return;
+            } else {
+                noDataEl.classList.add('hidden');
+            }
+
+            if (currentView === 'grid') {
+                gridContainer.classList.remove('hidden');
+                tableContainer.classList.add('hidden');
+                renderGrid(filtered);
+            } else {
+                gridContainer.classList.add('hidden');
+                tableContainer.classList.remove('hidden');
+                renderTable(filtered);
+            }
+            lucide.createIcons();
+        }
+
+        // Render Card Grid
+        function renderGrid(data) {
+            gridContainer.innerHTML = '';
+            data.forEach((prodi, index) => {
+                const style = getAkreditasiStyle(prodi.akreditasi);
+                const jenjangStyle = getJenjangStyle(prodi.jenjang);
+                const hasExpiredInfo = prodi.hingga.trim() !== "";
+                const dateText = hasExpiredInfo ? prodi.hingga : "Informasi tidak dicantumkan";
+
+                const card = document.createElement('div');
+                card.className = `bg-white dark:bg-slate-900 border-2 border-slate-900 dark:border-slate-800 hover:border-brand-gold dark:hover:border-brand-gold transition-all duration-300 flex flex-col justify-between p-6 group relative transform hover:-translate-y-1`;
+                // Menambahkan delay staggered animasi masuk
+                card.style.animationDelay = `${index * 30}ms`;
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Atas: Kode & Jenjang -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono font-bold tracking-wider text-slate-400 dark:text-slate-500">
+                                #${prodi.id}
+                            </span>
+                            <span class="px-2 py-0.5 text-xs font-bold border ${jenjangStyle}">
+                                ${prodi.jenjang}
+                            </span>
+                        </div>
+
+                        <!-- Judul Prodi -->
+                        <h4 class="font-serif text-lg font-bold leading-tight mb-2 text-slate-900 dark:text-white group-hover:text-brand-gold transition-colors duration-200">
+                            ${prodi.namaBersih}
+                        </h4>
+                    </div>
+
+                    <!-- Informasi Akreditasi & Masa Berlaku -->
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs text-slate-400">Peringkat:</span>
+                            <span class="px-3 py-1 text-xs font-bold border-l-4 ${style.bg}">
+                                ${prodi.akreditasi}
+                            </span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950 p-2 border border-slate-200 dark:border-slate-800/60">
+                            <i data-lucide="calendar" class="h-4 w-4 text-slate-400 shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="block text-[10px] uppercase text-slate-400 font-bold">Masa Berlaku</span>
+                                <span>${dateText}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        // Render List Table
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+            data.forEach((prodi, index) => {
+                const style = getAkreditasiStyle(prodi.akreditasi);
+                const jenjangStyle = getJenjangStyle(prodi.jenjang);
+                const hasExpiredInfo = prodi.hingga.trim() !== "";
+                const dateText = hasExpiredInfo ? prodi.hingga : "Informasi tidak dicantumkan";
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors duration-200';
+                tr.innerHTML = `
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-slate-500 dark:text-slate-400 sm:pl-6 w-16">
+                        ${index + 1}
+                    </td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm">
+                        <div class="font-bold text-slate-900 dark:text-white">${prodi.namaBersih}</div>
+                        <div class="text-xs text-slate-400 font-mono">Kode: ${prodi.id}</div>
+                    </td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm">
+                        <span class="px-2 py-0.5 text-xs font-bold border ${jenjangStyle}">
+                            ${prodi.jenjang}
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm">
+                        <span class="px-2.5 py-1 text-xs font-bold border-l-4 ${style.bg}">
+                            ${prodi.akreditasi}
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-3 py-4 text-xs text-slate-500 dark:text-slate-400">
+                        <div class="flex items-center space-x-1.5">
+                            <i data-lucide="calendar" class="h-4 w-4 text-slate-400"></i>
+                            <span>${dateText}</span>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        // EVENT LISTENERS
+        searchInput.addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            render();
+        });
+
+        filterAkreditasi.addEventListener('change', (e) => {
+            filterAkredVal = e.target.value;
+            render();
+        });
+
+        filterJenjang.addEventListener('change', (e) => {
+            filterJenjangVal = e.target.value;
+            render();
+        });
+
+        resetBtn.addEventListener('click', () => {
+            searchInput.value = "";
+            filterAkreditasi.value = "ALL";
+            filterJenjang.value = "ALL";
+            searchTerm = "";
+            filterAkredVal = "ALL";
+            filterJenjangVal = "ALL";
+            render();
+        });
+
+        // View Toggling
+        btnGrid.addEventListener('click', () => {
+            currentView = 'grid';
+            btnGrid.classList.add('bg-slate-900', 'dark:bg-slate-100', 'text-white', 'dark:text-slate-900');
+            btnGrid.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300');
+            btnTable.classList.remove('bg-slate-900', 'dark:bg-slate-100', 'text-white', 'dark:text-slate-900');
+            btnTable.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300', 'border-slate-300');
+            render();
+        });
+
+        // Event listener saat mode tabel diklik
+        btnTable.addEventListener('click', () => {
+            currentView = 'table';
+            btnTable.classList.add('bg-slate-900', 'dark:bg-slate-100', 'text-white', 'dark:text-slate-900');
+            btnTable.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300');
+            btnGrid.classList.remove('bg-slate-900', 'dark:bg-slate-100', 'text-white', 'dark:text-slate-900');
+            btnGrid.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300', 'border-slate-300');
+            render();
+        });
+
+        // Dark/Light Theme Handler
+        function setupTheme() {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const darkIcon = document.getElementById('theme-icon-dark');
+            const lightIcon = document.getElementById('theme-icon-light');
+
+            // Cek lokal storage atau preferensi sistem
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                darkIcon.classList.remove('hidden');
+                lightIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                }
+            });
+        }
+
+        // Jalankan saat dokumen siap
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
