@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id" class="light">
 <head>
@@ -83,7 +82,7 @@
         </div>
         
         <div class="max-w-7xl mx-auto relative z-10">
-            <span class="inline-block bg-brand-gold text-slate-950 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-4">DATA TERBARU 2026</span>
+            <span class="inline-block bg-brand-gold text-slate-950 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-4">DATA TERBARU VALID (28 PRODI)</span>
             <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-serif mb-4 leading-tight">
                 Infografis Akreditasi<br class="hidden sm:inline" /> Program Studi
             </h2>
@@ -91,7 +90,7 @@
                 Transparansi mutu pendidikan tinggi di lingkungan UIN Jurai Siwo Lampung. Memantau peringkat kelayakan program studi secara periodik demi pencapaian standar mutu nasional yang unggul.
             </p>
             
-            <!-- Kolom Statistik yang Diperbaiki menjadi 5 Kolom agar Cocok (Total 28 = 6 + 6 + 2 + 14) -->
+            <!-- Kolom Statistik Mutu Utama (Total 28 = 7 Unggul + 13 Baik Sekali + 4 Baik + 4 Terakreditasi Sementara) -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-8 pt-8 border-t border-slate-700">
                 <div>
                     <span class="text-3xl sm:text-4xl font-extrabold text-brand-gold block" id="stat-total">0</span>
@@ -110,8 +109,8 @@
                     <span class="text-xs uppercase tracking-wider text-slate-400">Baik</span>
                 </div>
                 <div>
-                    <span class="text-3xl sm:text-4xl font-extrabold text-slate-300 block" id="stat-terakreditasi">0</span>
-                    <span class="text-xs uppercase tracking-wider text-slate-400">Terakreditasi</span>
+                    <span class="text-3xl sm:text-4xl font-extrabold text-rose-400 block" id="stat-terakreditasi">0</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400" id="stat-terakreditasi-label">Terakreditasi Smt.</span>
                 </div>
             </div>
         </div>
@@ -121,7 +120,7 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <!-- STATS VISUALS (INFOGRAPHICS PANEL DENGAN MULTI-CHART INTERAKTIF) -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            <!-- Grafik Akreditasi Prodi (REPLACED AND UPGRADED) -->
+            <!-- Grafik Akreditasi Prodi -->
             <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 flex flex-col justify-between lg:col-span-2">
                 <div>
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-4 gap-4">
@@ -189,7 +188,7 @@
             </div>
         </div>
 
-        <!-- LIST CARDS & TABLE CONTROLLER -->
+        <!-- HEADER DAFTAR PRODI -->
         <div class="flex items-center justify-between mb-6 pt-6 border-t border-slate-200 dark:border-slate-800">
             <h3 class="font-serif text-xl font-bold text-slate-900 dark:text-white flex items-center space-x-2">
                 <span>Daftar Akreditasi Program Studi</span>
@@ -207,7 +206,7 @@
             </div>
         </div>
 
-        <!-- FILTER & KONTROL (Dipindahkan ke bawah judul daftar prodi) -->
+        <!-- FILTER & KONTROL (Diposisikan di atas daftar program studi) -->
         <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 mb-8 transition-all-custom">
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                 <!-- Search & Filter Tab -->
@@ -230,7 +229,7 @@
                             <option value="Unggul">Unggul</option>
                             <option value="Baik Sekali">Baik Sekali</option>
                             <option value="Baik">Baik</option>
-                            <option value="Terakreditasi">Terakreditasi</option>
+                            <option value="Terakreditasi Sementara">Terakreditasi Sementara</option>
                         </select>
                     </div>
 
@@ -305,55 +304,62 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // DATASET dari tabel HTML yang diinput user
+        // DATASET VALID dari input terbaru user (28 Program Studi)
         const prodiData = [
-            { id: "74134", nama: "S2 Ekonomi Syariah", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "76231", nama: "S1 Ilmu Al-Quran dan Tafsir", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "62201", nama: "S1 Akuntansi Syariah", akreditasi: "Baik Sekali", hingga: "07 Februari 2030" },
-            { id: "74230", nama: "S1 Hukum Keluarga Islam (Ahwal Syakhshiyyah)", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "76201", nama: "S1 Manajemen Haji dan Umroh", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "61206", nama: "S1 Perbankan Syariah", akreditasi: "Baik Sekali", hingga: "29 Desember 2027" },
-            { id: "86906", nama: "Profesi Pendidikan Profesi Guru", akreditasi: "Baik", hingga: "04 Maret 2030" },
-            { id: "70232", nama: "S1 Bimbingan Penyuluhan Islam", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "70233", nama: "S1 Komunikasi dan Penyiaran Islam", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "84025", nama: "S1 Tadris Biologi", akreditasi: "Baik Sekali", hingga: "04 Maret 2030" },
-            { id: "86032", nama: "S3 Pendidikan Agama Islam", akreditasi: "Baik", hingga: "01 Januari 9999" }, // Spesial Case (Tanggal Sistem)
-            { id: "74234", nama: "S1 Hukum Ekonomi Syariah (Muamalah)", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "88104", nama: "S2 Pendidikan Bahasa Arab", akreditasi: "Baik Sekali", hingga: "01 Oktober 2030" },
-            { id: "79203", nama: "S1 Bahasa dan Sastra Arab", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "84202", nama: "S1 Tadris Matematika", akreditasi: "Unggul", hingga: "30 Desember 2029" },
-            { id: "88204", nama: "S1 Pendidikan Bahasa Arab", akreditasi: "Unggul", hingga: "01 Oktober 2030" },
-            { id: "86108", nama: "S2 Pendidikan Agama Islam", akreditasi: "Baik Sekali", hingga: "01 Oktober 2030" },
-            { id: "76235", nama: "S1 Ilmu Hadis", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "60202", nama: "S1 Ekonomi Syariah", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "84207", nama: "S1 Tadris IPS", akreditasi: "Unggul", hingga: "19 Desember 2029" },
-            { id: "74235", nama: "S1 Hukum Tatanegara (Siyasah Syar'iyyah)", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "76005", nama: "S3 Ilmu Syariah", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "70231", nama: "S1 Pengembangan Masyarakat Islam", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "86233", nama: "S1 Pendidikan Islam Anak Usia Dini", akreditasi: "Baik Sekali", hingga: "04 Maret 2030" },
-            { id: "88203", nama: "S1 Tadris Bahasa Inggris", akreditasi: "Unggul", hingga: "22 Oktober 2030" },
-            { id: "86208", nama: "S1 Pendidikan Agama Islam", akreditasi: "Unggul", hingga: "22 Oktober 2030" },
-            { id: "74130", nama: "S2 Hukum Keluarga Islam (Ahwal Syakhshiyyah)", akreditasi: "Terakreditasi", hingga: "" },
-            { id: "86232", nama: "S1 Pendidikan Guru Madrasah Ibtidaiyah", akreditasi: "Unggul", hingga: "04 Desember 2029" }
+            { id: "76231", nama: "S1 - Ilmu Al-Quran dan Tafsir", akreditasi: "Terakreditasi Sementara", hingga: "" },
+            { id: "86232", nama: "S1 - Pendidikan Guru Madrasah Ibtidaiyah", akreditasi: "Unggul", hingga: "04 Desember 2029" },
+            { id: "76235", nama: "S1 - Ilmu Hadis", akreditasi: "Terakreditasi Sementara", hingga: "" },
+            { id: "86032", nama: "S3 - Pendidikan Agama Islam", akreditasi: "Baik", hingga: "01 Januari 9999" },
+            { id: "70231", nama: "S1 - Pengembangan Masyarakat Islam", akreditasi: "Terakreditasi Sementara", hingga: "" },
+            { id: "76005", nama: "S3 - Ilmu Syariah", akreditasi: "Terakreditasi Sementara", hingga: "" },
+            { id: "86906", nama: "Profesi - Pendidikan Profesi Guru", akreditasi: "Baik", hingga: "04 Maret 2030" },
+            { id: "76201", nama: "S1 - Manajemen Haji dan Umroh", akreditasi: "Baik Sekali", hingga: "" },
+            { id: "70233", nama: "S1 - Komunikasi dan Penyiaran Islam", akreditasi: "Baik Sekali", hingga: "" },
+            { id: "74234", nama: "S1 - Hukum Ekonomi Syariah (Muamalah)", akreditasi: "Baik Sekali", hingga: "" },
+            { id: "88203", nama: "S1 - Tadris Bahasa Inggris", akreditasi: "Unggul", hingga: "22 Oktober 2030" },
+            { id: "74130", nama: "S2 - Hukum Keluarga Islam (Ahwal Syakhshiyyah)", akreditasi: "Baik", hingga: "" },
+            { id: "86233", nama: "S1 - Pendidikan Islam Anak Usia Dini", akreditasi: "Baik Sekali", hingga: "04 Maret 2030" },
+            { id: "79203", nama: "S1 - Bahasa dan Sastra Arab", akreditasi: "Baik Sekali", hingga: "" },
+            { id: "60202", nama: "S1 - Ekonomi Syariah", akreditasi: "Unggul", hingga: "" },
+            { id: "88204", nama: "S1 - Pendidikan Bahasa Arab", akreditasi: "Unggul", hingga: "01 Oktober 2030" },
+            { id: "74230", nama: "S1 - Hukum Keluarga Islam (Ahwal Syakhshiyyah)", akreditasi: "Baik Sekali", hingga: "" },
+            { id: "61206", nama: "S1 - Perbankan Syariah", akreditasi: "Baik Sekali", hingga: "29 Desember 2027" },
+            { id: "86208", nama: "S1 - Pendidikan Agama Islam", akreditasi: "Unggul", hingga: "22 Oktober 2030" },
+            { id: "86108", nama: "S2 - Pendidikan Agama Islam", akreditasi: "Baik Sekali", hingga: "01 Oktober 2030" },
+            { id: "70232", nama: "S1 - Bimbingan Penyuluhan Islam", akreditasi: "Baik Sekali", hingga: "" },
+            { id: "84207", nama: "S1 - Tadris IPS", akreditasi: "Unggul", hingga: "19 Desember 2029" },
+            { id: "74235", nama: "S1 - Hukum Tatanegara (Siyasah Syar'iyyah)", akreditasi: "Baik Sekali", hingga: "" },
+            { id: "62201", nama: "S1 - Akuntansi Syariah", akreditasi: "Baik Sekali", hingga: "07 Februari 2030" },
+            { id: "84025", nama: "S1 - Tadris Biologi", akreditasi: "Baik Sekali", hingga: "04 Maret 2030" },
+            { id: "84202", nama: "S1 - Tadris Matematika", akreditasi: "Unggul", hingga: "30 Desember 2029" },
+            { id: "88104", nama: "S2 - Pendidikan Bahasa Arab", akreditasi: "Baik Sekali", hingga: "01 Oktober 2030" },
+            { id: "74134", nama: "S2 - Ekonomi Syariah", akreditasi: "Baik", hingga: "" }
         ];
 
-        // Memecah Jenjang & Nama Utama
+        // Memproses split jenjang secara aman dari format "Jenjang - Nama"
         const processedData = prodiData.map(item => {
             let jenjang = "S1";
             let namaBersih = item.nama;
 
-            if (item.nama.startsWith("S3")) {
-                jenjang = "S3";
-                namaBersih = item.nama.replace("S3 ", "");
-            } else if (item.nama.startsWith("S2")) {
-                jenjang = "S2";
-                namaBersih = item.nama.replace("S2 ", "");
-            } else if (item.nama.startsWith("S1")) {
-                jenjang = "S1";
-                namaBersih = item.nama.replace("S1 ", "");
-            } else if (item.nama.startsWith("Profesi")) {
-                jenjang = "Profesi";
-                namaBersih = item.nama.replace("Profesi ", "");
+            if (item.nama.includes(" - ")) {
+                const parts = item.nama.split(" - ");
+                jenjang = parts[0].trim();
+                namaBersih = parts.slice(1).join(" - ").trim();
+            } else {
+                // Fallback jika ada penulisan tanpa spasi penghubung
+                if (item.nama.startsWith("S3")) {
+                    jenjang = "S3";
+                    namaBersih = item.nama.replace("S3 ", "");
+                } else if (item.nama.startsWith("S2")) {
+                    jenjang = "S2";
+                    namaBersih = item.nama.replace("S2 ", "");
+                } else if (item.nama.startsWith("S1")) {
+                    jenjang = "S1";
+                    namaBersih = item.nama.replace("S1 ", "");
+                } else if (item.nama.startsWith("Profesi")) {
+                    jenjang = "Profesi";
+                    namaBersih = item.nama.replace("Profesi ", "");
+                }
             }
 
             return {
@@ -402,12 +408,12 @@
             const unggul = processedData.filter(p => p.akreditasi === "Unggul").length;
             const baikSekali = processedData.filter(p => p.akreditasi === "Baik Sekali").length;
             const baik = processedData.filter(p => p.akreditasi === "Baik").length;
-            const terakreditasi = processedData.filter(p => p.akreditasi === "Terakreditasi").length;
+            const terakreditasi = processedData.filter(p => p.akreditasi === "Terakreditasi Sementara").length;
 
             const expired = processedData.filter(p => p.hingga.trim() === "").length;
             const active = total - expired;
 
-            // Update Angka dengan Animasi Sederhana (Sekarang mencakup peringkat "Baik")
+            // Update Angka dengan Animasi Sederhana
             animateNumber('stat-total', total);
             animateNumber('stat-unggul', unggul);
             animateNumber('stat-baiksekali', baikSekali);
@@ -454,10 +460,10 @@
                         bg: 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-500',
                         badge: 'bg-amber-500 text-slate-950'
                     };
-                default: // Terakreditasi
+                default: // Terakreditasi Sementara
                     return {
-                        bg: 'bg-slate-50 dark:bg-slate-800/40 text-slate-700 dark:text-slate-300 border-slate-400',
-                        badge: 'bg-slate-500 text-white'
+                        bg: 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-400 border-rose-400',
+                        badge: 'bg-rose-500 text-white'
                     };
             }
         }
@@ -498,7 +504,6 @@
                 gridContainer.classList.add('hidden');
                 tableContainer.classList.add('hidden');
                 noDataEl.classList.remove('hidden');
-                // Hancurkan chart jika tidak ada data sama sekali agar tidak membingungkan
                 if (globalChart) {
                     globalChart.destroy();
                     globalChart = null;
@@ -518,7 +523,6 @@
                 renderTable(filtered);
             }
             
-            // Perbarui visualisasi chart berdasarkan data yang terfilter saat ini
             renderAkreditasiChart(filtered);
             lucide.createIcons();
         }
@@ -630,7 +634,7 @@
             const unggul = filteredData.filter(p => p.akreditasi === "Unggul").length;
             const baikSekali = filteredData.filter(p => p.akreditasi === "Baik Sekali").length;
             const baik = filteredData.filter(p => p.akreditasi === "Baik").length;
-            const terakreditasi = filteredData.filter(p => p.akreditasi === "Terakreditasi").length;
+            const terakreditasi = filteredData.filter(p => p.akreditasi === "Terakreditasi Sementara").length;
 
             // Hitung sebaran multivariat untuk Radar: Sarjana (S1) vs Pascasarjana & Profesi (S2/S3/Profesi)
             const s1Prodi = filteredData.filter(p => p.jenjang === "S1");
@@ -640,14 +644,14 @@
                 s1Prodi.filter(p => p.akreditasi === "Unggul").length,
                 s1Prodi.filter(p => p.akreditasi === "Baik Sekali").length,
                 s1Prodi.filter(p => p.akreditasi === "Baik").length,
-                s1Prodi.filter(p => p.akreditasi === "Terakreditasi").length
+                s1Prodi.filter(p => p.akreditasi === "Terakreditasi Sementara").length
             ];
 
             const rNonS1 = [
                 nonS1Prodi.filter(p => p.akreditasi === "Unggul").length,
                 nonS1Prodi.filter(p => p.akreditasi === "Baik Sekali").length,
                 nonS1Prodi.filter(p => p.akreditasi === "Baik").length,
-                nonS1Prodi.filter(p => p.akreditasi === "Terakreditasi").length
+                nonS1Prodi.filter(p => p.akreditasi === "Terakreditasi Sementara").length
             ];
 
             // Warna Tema
@@ -660,7 +664,7 @@
                 globalChart = new Chart(ctx, {
                     type: 'radar',
                     data: {
-                        labels: ['Unggul', 'Baik Sekali', 'Baik', 'Terakreditasi'],
+                        labels: ['Unggul', 'Baik Sekali', 'Baik', 'Sementara'],
                         datasets: [
                             {
                                 label: 'Jenjang S1 (Sarjana)',
@@ -718,14 +722,14 @@
                 globalChart = new Chart(ctx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Unggul', 'Baik Sekali', 'Baik', 'Terakreditasi'],
+                        labels: ['Unggul', 'Baik Sekali', 'Baik', 'Terakreditasi Sementara'],
                         datasets: [{
                             data: [unggul, baikSekali, baik, terakreditasi],
                             backgroundColor: [
                                 '#10B981', // emerald-500
                                 '#0EA5E9', // sky-500
                                 '#F59E0B', // amber-500
-                                '#94A3B8'  // slate-400
+                                '#F43F5E'  // rose-500
                             ],
                             borderWidth: isDarkMode ? 2 : 1,
                             borderColor: isDarkMode ? '#0f172a' : '#ffffff'
@@ -749,7 +753,7 @@
                 globalChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ['Unggul', 'Baik Sekali', 'Baik', 'Terakreditasi'],
+                        labels: ['Unggul', 'Baik Sekali', 'Baik', 'Sementara'],
                         datasets: [{
                             label: 'Jumlah Program Studi',
                             data: [unggul, baikSekali, baik, terakreditasi],
@@ -757,13 +761,13 @@
                                 'rgba(16, 185, 129, 0.85)',
                                 'rgba(14, 165, 233, 0.85)',
                                 'rgba(245, 158, 11, 0.85)',
-                                'rgba(148, 163, 184, 0.85)'
+                                'rgba(244, 63, 94, 0.85)'
                             ],
                             borderColor: [
                                 '#10B981',
                                 '#0EA5E9',
                                 '#F59E0B',
-                                '#94A3B8'
+                                '#F43F5E'
                             ],
                             borderWidth: 1
                         }]
