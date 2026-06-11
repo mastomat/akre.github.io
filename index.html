@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id" class="light">
 <head>
@@ -74,43 +75,166 @@
         </div>
     </nav>
 
-    <!-- HEADER / HERO -->
-    <header class="relative overflow-hidden bg-brand-darkGreen text-white py-16 px-4 border-b-4 border-brand-gold">
-        <!-- Abstract Background Lines (Decorative) -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(#C5A880 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
+    <!-- HEADER / HERO REDESIGN -->
+    <header class="relative overflow-hidden bg-[#021826] text-white py-16 lg:py-20 border-b-4 border-brand-gold">
+        <!-- Interactive Ribbon Waves Canvas Overlay (Visual effect inspired by image_392639.png) -->
+        <canvas id="hero-waves-canvas" class="absolute inset-0 w-full h-full pointer-events-none mix-blend-screen opacity-45 z-0"></canvas>
+        
+        <!-- Abstract Background Lines & Modern Glow (Decorative) -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none z-0">
+            <!-- Grid overlay -->
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: linear-gradient(to right, rgba(197, 168, 128, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(197, 168, 128, 0.08) 1px, transparent 1px); background-size: 30px 30px;"></div>
+            <!-- Dynamic spotlights -->
+            <div class="absolute top-[-40%] right-[-10%] w-[500px] h-[500px] bg-brand-green opacity-35 blur-[120px]"></div>
+            <div class="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-brand-gold opacity-15 blur-[100px]"></div>
         </div>
         
-        <div class="max-w-7xl mx-auto relative z-10">
-            <span class="inline-block bg-brand-gold text-slate-950 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-4">DATA TERBARU VALID (28 PRODI)</span>
-            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-serif mb-4 leading-tight">
-                Infografis Akreditasi<br class="hidden sm:inline" /> Program Studi
-            </h2>
-            <p class="max-w-2xl text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-                Transparansi mutu pendidikan tinggi di lingkungan UIN Jurai Siwo Lampung. Memantau peringkat kelayakan program studi secara periodik demi pencapaian standar mutu nasional yang unggul.
-            </p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Two Column Layout for modern balance -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-12">
+                
+                <!-- Left Column (Text & Contextual Badges) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center bg-brand-gold/10 text-brand-gold px-3 py-1 text-xs font-bold uppercase tracking-widest border border-brand-gold/30">
+                            <span class="w-1.5 h-1.5 bg-brand-gold mr-2 animate-pulse"></span>
+                            Data Terkini Terpadu
+                        </span>
+                        <span class="inline-flex items-center bg-brand-green/20 text-emerald-400 px-3 py-1 text-xs font-bold uppercase tracking-widest border border-brand-green/30">
+                            Sistem Penjaminan Mutu
+                        </span>
+                    </div>
+
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-serif mb-4 leading-tight">
+                        Infografis Akreditasi<br />
+                        <span class="text-brand-gold relative inline-block">
+                            Program Studi
+                            <span class="absolute bottom-1.5 left-0 w-full h-1 bg-brand-green"></span>
+                        </span>
+                    </h2>
+                    
+                    <p class="max-w-2xl text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
+                        Transparansi akuntabilitas publik dan pemantauan peringkat kelayakan program studi secara periodik di lingkungan UIN Jurai Siwo Lampung. Kami berkomitmen dalam pencapaian standar mutu nasional yang unggul dan berkelanjutan.
+                    </p>
+
+                    <!-- Trust indicators inside hero -->
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-xs text-slate-400 font-mono">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="check-circle" class="h-4.5 w-4.5 text-emerald-400"></i>
+                            28 Program Studi Valid
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="h-4.5 w-4.5 text-brand-gold"></i>
+                            Terverifikasi BAN-PT & LAM
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right Column (Featured Institutional Accreditation Badge Card) -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900/90 border-2 border-brand-gold p-8 relative shadow-2xl backdrop-blur-sm group hover:border-white transition-all duration-300">
+                        <!-- Corner Accent Lines -->
+                        <div class="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-gold group-hover:border-white transition-colors duration-300"></div>
+                        <div class="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-gold group-hover:border-white transition-colors duration-300"></div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold block mb-1">Akreditasi Perguruan Tinggi (APT)</span>
+                                    <h4 class="font-serif text-lg font-bold text-white">Akreditasi Kampus</h4>
+                                </div>
+                                <div class="p-2 bg-brand-gold/10 text-brand-gold border border-brand-gold/20">
+                                    <i data-lucide="award" class="h-6 w-6"></i>
+                                </div>
+                            </div>
+
+                            <div class="py-4 border-y border-slate-800">
+                                <span class="text-[10px] uppercase tracking-wider text-slate-400 block mb-1">Peringkat Kelayakan Institusi</span>
+                                <span class="text-3xl sm:text-4xl font-extrabold text-brand-gold tracking-tight block">BAIK SEKALI</span>
+                                <p class="text-[11px] text-slate-400 mt-2 font-sans italic leading-tight">UIN Jurai Siwo Lampung secara konsisten menyajikan mutu akademik tepercaya berlandaskan ke-Islam-an dan ke-Indonesia-an.</p>
+                            </div>
+
+                            <!-- Integrated elegant Download CTA Button -->
+                            <div>
+                                <a href="https://drive.google.com/file/d/1zpG8d5AHiy8e2FfKmJ1QV0GZBnTNjzyg/view?usp=sharing" target="_blank" class="w-full inline-flex items-center justify-between bg-brand-gold text-slate-950 px-5 py-3.5 font-extrabold text-xs uppercase tracking-widest hover:bg-white hover:text-brand-darkGreen transition-all duration-300 border border-brand-gold hover:border-white">
+                                    <span class="flex items-center gap-2">
+                                        <i data-lucide="file-down" class="h-4.5 w-4.5"></i>
+                                        <span>Unduh Sertifikat APT</span>
+                                    </span>
+                                    <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             
-            <!-- Kolom Statistik Mutu Utama (Total 28 = 7 Unggul + 13 Baik Sekali + 4 Baik + 4 Terakreditasi Sementara) -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-8 pt-8 border-t border-slate-700">
-                <div>
-                    <span class="text-3xl sm:text-4xl font-extrabold text-brand-gold block" id="stat-total">0</span>
-                    <span class="text-xs uppercase tracking-wider text-slate-400">Total Prodi</span>
+            <!-- Stats Metric Cards (Grid 5-cols with side indicators and dynamic percentages) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 pt-10 border-t border-slate-800 relative z-10">
+                <!-- Stat Card: Total -->
+                <div class="bg-slate-900/60 p-5 border border-slate-800 hover:border-brand-gold transition-all duration-300 relative group">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-gold"></div>
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-4xl font-extrabold text-white tracking-tight" id="stat-total">0</span>
+                        <span class="text-[11px] font-mono font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/30 px-2 py-0.5" id="pct-total">0%</span>
+                    </div>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-brand-gold"></span>
+                        Total Prodi
+                    </span>
                 </div>
-                <div>
-                    <span class="text-3xl sm:text-4xl font-extrabold text-emerald-400 block" id="stat-unggul">0</span>
-                    <span class="text-xs uppercase tracking-wider text-slate-400">Peringkat Unggul</span>
+
+                <!-- Stat Card: Unggul -->
+                <div class="bg-slate-900/60 p-5 border border-slate-800 hover:border-emerald-500 transition-all duration-300 relative group">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-4xl font-extrabold text-emerald-400 tracking-tight" id="stat-unggul">0</span>
+                        <span class="text-[11px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5" id="pct-unggul">0%</span>
+                    </div>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-emerald-500"></span>
+                        Peringkat Unggul
+                    </span>
                 </div>
-                <div>
-                    <span class="text-3xl sm:text-4xl font-extrabold text-sky-400 block" id="stat-baiksekali">0</span>
-                    <span class="text-xs uppercase tracking-wider text-slate-400">Baik Sekali</span>
+
+                <!-- Stat Card: Baik Sekali -->
+                <div class="bg-slate-900/60 p-5 border border-slate-800 hover:border-sky-500 transition-all duration-300 relative group">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-sky-500"></div>
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-4xl font-extrabold text-sky-400 tracking-tight" id="stat-baiksekali">0</span>
+                        <span class="text-[11px] font-mono font-bold bg-sky-500/10 text-sky-400 border border-sky-500/30 px-2 py-0.5" id="pct-baiksekali">0%</span>
+                    </div>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-sky-500"></span>
+                        Baik Sekali
+                    </span>
                 </div>
-                <div>
-                    <span class="text-3xl sm:text-4xl font-extrabold text-amber-400 block" id="stat-baik">0</span>
-                    <span class="text-xs uppercase tracking-wider text-slate-400">Baik</span>
+
+                <!-- Stat Card: Baik -->
+                <div class="bg-slate-900/60 p-5 border border-slate-800 hover:border-amber-500 transition-all duration-300 relative group">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-amber-500"></div>
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-4xl font-extrabold text-amber-400 tracking-tight" id="stat-baik">0</span>
+                        <span class="text-[11px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-2 py-0.5" id="pct-baik">0%</span>
+                    </div>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-amber-500"></span>
+                        Baik
+                    </span>
                 </div>
-                <div>
-                    <span class="text-3xl sm:text-4xl font-extrabold text-rose-400 block" id="stat-terakreditasi">0</span>
-                    <span class="text-xs uppercase tracking-wider text-slate-400" id="stat-terakreditasi-label">Terakreditasi Smt.</span>
+
+                <!-- Stat Card: Terakreditasi Sementara -->
+                <div class="bg-slate-900/60 p-5 border border-slate-800 hover:border-rose-500 transition-all duration-300 relative group col-span-2 sm:col-span-1">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-rose-500"></div>
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-4xl font-extrabold text-rose-400 tracking-tight" id="stat-terakreditasi">0</span>
+                        <span class="text-[11px] font-mono font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30 px-2 py-0.5" id="pct-terakreditasi">0%</span>
+                    </div>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5" id="stat-terakreditasi-label">
+                        <span class="w-1.5 h-1.5 bg-rose-500"></span>
+                        Terakreditasi Smt.
+                    </span>
                 </div>
             </div>
         </div>
@@ -121,7 +245,7 @@
         <!-- STATS VISUALS (INFOGRAPHICS PANEL DENGAN MULTI-CHART INTERAKTIF) -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <!-- Grafik Akreditasi Prodi -->
-            <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 flex flex-col justify-between lg:col-span-2">
+            <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 flex flex-col h-full lg:col-span-2">
                 <div>
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-4 gap-4">
                         <div>
@@ -130,7 +254,7 @@
                         </div>
                         
                         <!-- Chart Tabs Switcher -->
-                        <div class="flex border border-slate-900 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 p-1">
+                        <div class="flex border border-slate-900 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 p-1 shrink-0">
                             <button onclick="switchChart('radar')" id="tab-chart-radar" class="px-3 py-1.5 text-xs font-semibold bg-brand-green text-white transition-all duration-200">
                                 Jaring (Radar)
                             </button>
@@ -145,13 +269,41 @@
                 </div>
 
                 <!-- Canvas Chart.js Container -->
-                <div class="relative w-full flex items-center justify-center min-h-[280px] max-h-[340px]">
+                <div class="relative flex-1 min-h-[350px] md:min-h-[420px] w-full mt-2">
                     <canvas id="prodiChart"></canvas>
                 </div>
             </div>
 
             <!-- Kolom Samping Kanan: Masa Berlaku & Info -->
             <div class="flex flex-col gap-6">
+                <!-- Visi Institusi & LPM Card -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-serif text-base font-bold text-brand-darkGreen dark:text-slate-100 mb-4 flex items-center space-x-2 border-b border-slate-200 dark:border-slate-800 pb-2">
+                            <i data-lucide="compass" class="h-4.5 w-4.5 text-brand-gold"></i>
+                            <span>Visi & Komitmen Mutu</span>
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <!-- Visi Universitas -->
+                            <div class="border-l-2 border-brand-gold pl-3">
+                                <span class="text-[10px] uppercase tracking-wider text-brand-gold font-extrabold block mb-1">Visi UIN Jurai Siwo</span>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 italic leading-relaxed">
+                                    "Menjadi perguruan tinggi keagamaan Islam yang unggul dalam sinergi sosio-eco-techno-preneurship berlandaskan nilai-nilai ke-Islam-an dan ke-Indonesia-an pada tahun 2039."
+                                </p>
+                            </div>
+
+                            <!-- Visi LPM -->
+                            <div class="border-l-2 border-brand-green pl-3">
+                                <span class="text-[10px] uppercase tracking-wider text-brand-green font-extrabold block mb-1">Visi LPM (Penjaminan Mutu)</span>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 italic leading-relaxed">
+                                    "Terwujudnya sebuah organisasi penjaminan mutu akademik yang profesional untuk mencapai visi UIN yang unggul, mandiri dan berbudaya."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Analisis Kadaluarsa / Expired Monitoring -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 flex flex-col justify-between flex-1">
                     <div>
@@ -176,13 +328,31 @@
                 <div class="bg-brand-green text-white p-6 border-l-4 border-brand-gold flex flex-col justify-between flex-1">
                     <div>
                         <h3 class="font-serif text-lg font-bold text-brand-gold mb-2">UIN Jurai Siwo Lampung</h3>
-                        <p class="text-xs text-slate-200 leading-relaxed font-sans">
+                        
+                        <!-- Lencana Akreditasi Institusi Terintegrasi -->
+                        <div class="mb-4 bg-emerald-950/40 border border-brand-gold/30 p-3">
+                            <span class="text-[10px] uppercase text-brand-gold font-bold block mb-1">Akreditasi Perguruan Tinggi (APT)</span>
+                            <div class="flex items-center justify-between">
+                                <span class="text-base font-extrabold tracking-tight">BAIK SEKALI</span>
+                                <span class="text-[10px] bg-brand-gold text-slate-950 px-1.5 py-0.5 font-bold uppercase">BAN-PT</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-200 leading-relaxed font-sans mb-4">
                             Menyelenggarakan integrasi keilmuan keislaman dan sains bernilai kearifan lokal. Penjaminan mutu internal adalah komitmen kami untuk mencetak lulusan berakhlak mulia dan profesional.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-emerald-800 flex items-center justify-between text-xs text-brand-gold">
-                        <span>Lembaga Penjaminan Mutu (LPM)</span>
-                        <i data-lucide="award" class="h-5 w-5 animate-pulse"></i>
+                    
+                    <div class="pt-4 border-t border-emerald-800 flex flex-col gap-3">
+                        <!-- Tombol Tautan Sertifikat Akreditasi Universitas -->
+                        <a href="https://drive.google.com/file/d/1zpG8d5AHiy8e2FfKmJ1QV0GZBnTNjzyg/view?usp=sharing" target="_blank" class="w-full bg-brand-gold text-slate-950 text-center py-2.5 px-4 font-bold text-xs hover:bg-white hover:text-brand-green transition-all duration-300 flex items-center justify-center space-x-2 border border-brand-gold">
+                            <i data-lucide="file-text" class="h-4 w-4"></i>
+                            <span>Unduh Sertifikat APT</span>
+                        </a>
+                        <div class="flex items-center justify-between text-[10px] text-brand-gold">
+                            <span>Lembaga Penjaminan Mutu (LPM)</span>
+                            <i data-lucide="award" class="h-4.5 w-4.5 animate-pulse"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -206,7 +376,7 @@
             </div>
         </div>
 
-        <!-- FILTER & KONTROL (Diposisikan di atas daftar program studi) -->
+        <!-- FILTER & KONTROL -->
         <div class="bg-white dark:bg-slate-900 border border-slate-900 dark:border-slate-800 p-6 mb-8 transition-all-custom">
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                 <!-- Search & Filter Tab -->
@@ -400,9 +570,10 @@
             hitungStatistik();
             render();
             setupTheme();
+            initHeroWaves(); // Jalankan rendering animasi gelombang latar belakang
         }
 
-        // Hitung data awal untuk Dashboard Statistik
+        // Hitung data awal untuk Dashboard Statistik & Persentase
         function hitungStatistik() {
             const total = processedData.length;
             const unggul = processedData.filter(p => p.akreditasi === "Unggul").length;
@@ -413,12 +584,25 @@
             const expired = processedData.filter(p => p.hingga.trim() === "").length;
             const active = total - expired;
 
-            // Update Angka dengan Animasi Sederhana
+            // Update Angka Mutlak dengan Animasi Sederhana
             animateNumber('stat-total', total);
             animateNumber('stat-unggul', unggul);
             animateNumber('stat-baiksekali', baikSekali);
             animateNumber('stat-baik', baik);
             animateNumber('stat-terakreditasi', terakreditasi);
+
+            // Perhitungan Persentase Kontribusi Mutu Program Studi
+            const pctUnggul = total > 0 ? ((unggul / total) * 100).toFixed(1) : 0;
+            const pctBaikSekali = total > 0 ? ((baikSekali / total) * 100).toFixed(1) : 0;
+            const pctBaik = total > 0 ? ((baik / total) * 100).toFixed(1) : 0;
+            const pctTerakreditasi = total > 0 ? ((terakreditasi / total) * 100).toFixed(1) : 0;
+
+            // Animasikan nilai persentase agar berputar halus bersamaan
+            animatePercentage('pct-total', 100);
+            animatePercentage('pct-unggul', parseFloat(pctUnggul));
+            animatePercentage('pct-baiksekali', parseFloat(pctBaikSekali));
+            animatePercentage('pct-baik', parseFloat(pctBaik));
+            animatePercentage('pct-terakreditasi', parseFloat(pctTerakreditasi));
 
             document.getElementById('count-expired').textContent = expired;
             document.getElementById('count-active').textContent = active;
@@ -440,6 +624,122 @@
                     clearInterval(timer);
                 }
             }, stepTime || 30);
+        }
+
+        // Animasi persentase sederhana (presisi float satu desimal)
+        function animatePercentage(id, target) {
+            let current = 0;
+            const element = document.getElementById(id);
+            if (!element) return;
+            const duration = 1000;
+            const step = target / (duration / 30);
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    element.textContent = target % 1 === 0 ? target.toFixed(0) + '%' : target.toFixed(1) + '%';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = current.toFixed(1) + '%';
+                }
+            }, 30);
+        }
+
+        // IMPLEMENTASI RENDERING GELOMBANG PITA VEKTOR (Berdasarkan image_392639.png)
+        function initHeroWaves() {
+            const canvas = document.getElementById('hero-waves-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let width = canvas.width = canvas.parentElement.offsetWidth;
+            let height = canvas.height = canvas.parentElement.offsetHeight;
+
+            // Memperbarui ukuran canvas saat layar diubah resolusinya
+            window.addEventListener('resize', () => {
+                if (canvas && canvas.parentElement) {
+                    width = canvas.width = canvas.parentElement.offsetWidth;
+                    height = canvas.height = canvas.parentElement.offsetHeight;
+                }
+            });
+
+            let frame = 0;
+
+            // Fungsi pembantu menggambar untaian pita bergradasi halus
+            function drawWaveRibbon(yOffset, baseAmp, freq, speed, linesCount, colorString, spread, phaseShift = 0) {
+                for (let i = 0; i < linesCount; i++) {
+                    ctx.beginPath();
+                    // Menggunakan ketebalan sangat tipis dan opasitas tumpang tindih untuk menciptakan ilusi kedalaman serat pita
+                    ctx.strokeStyle = colorString;
+                    ctx.lineWidth = 0.6;
+
+                    const lineOffset = i * spread;
+                    const individualPhase = i * 0.04 + phaseShift;
+
+                    for (let x = 0; x < width; x += 4) {
+                        // Formula sinusoidal ganda terkomposisi untuk aliran gerakan gelombang organik
+                        const angle1 = x * freq + (frame * speed) + individualPhase;
+                        const angle2 = x * (freq * 0.4) - (frame * speed * 0.5);
+                        
+                        const y = yOffset + 
+                                  Math.sin(angle1) * baseAmp + 
+                                  Math.cos(angle2) * (baseAmp * 0.35) + 
+                                  lineOffset;
+
+                        if (x === 0) {
+                            ctx.moveTo(x, y);
+                        } else {
+                            ctx.lineTo(x, y);
+                        }
+                    }
+                    ctx.stroke();
+                }
+            }
+
+            // Loop animasi utama gelombang latar belakang
+            function renderWaves() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Pita 1: Gelombang Hijau UIN (Dominan di area tengah)
+                drawWaveRibbon(
+                    height * 0.48, 
+                    45, 
+                    0.0025, 
+                    0.012, 
+                    22, 
+                    'rgba(0, 92, 83, 0.16)', 
+                    1.6, 
+                    0
+                );
+
+                // Pita 2: Gelombang Emas Premium (Kontras menyilang)
+                drawWaveRibbon(
+                    height * 0.52, 
+                    35, 
+                    0.0035, 
+                    -0.008, 
+                    18, 
+                    'rgba(197, 168, 128, 0.14)', 
+                    1.2, 
+                    Math.PI * 0.5
+                );
+
+                // Pita 3: Gelombang Biru Samudra (Aksen Kedalaman Sesuai image_392639.png)
+                drawWaveRibbon(
+                    height * 0.44, 
+                    50, 
+                    0.0018, 
+                    0.006, 
+                    15, 
+                    'rgba(14, 165, 233, 0.11)', 
+                    2.0, 
+                    Math.PI
+                );
+
+                frame++;
+                requestAnimationFrame(renderWaves);
+            }
+
+            renderWaves();
         }
 
         // Return badge color class
@@ -621,7 +921,9 @@
 
         // MANAJEMEN GRAFIK / CHART.JS
         function renderAkreditasiChart(filteredData) {
-            const ctx = document.getElementById('prodiChart').getContext('2d');
+            const canvasEl = document.getElementById('prodiChart');
+            if (!canvasEl) return;
+            const ctx = canvasEl.getContext('2d');
             const isDarkMode = document.documentElement.classList.contains('dark');
 
             // Hancurkan chart lama jika ada
@@ -629,7 +931,7 @@
                 globalChart.destroy();
             }
 
-            // Hitung distribusi data terfilter
+            // Hitung sebaran data terfilter
             const total = filteredData.length;
             const unggul = filteredData.filter(p => p.akreditasi === "Unggul").length;
             const baikSekali = filteredData.filter(p => p.akreditasi === "Baik Sekali").length;
@@ -656,10 +958,12 @@
 
             // Warna Tema
             const labelColor = isDarkMode ? '#CBD5E1' : '#334155';
-            const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.08)';
+            const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.12)' : 'rgba(15, 23, 42, 0.08)';
             const tooltipBg = isDarkMode ? '#1E293B' : '#0F172A';
 
-            // Chart Configs berdasarkan tipe yang dipilih
+            // Cek status layar lebar / sempit secara dinamis untuk layout legenda responsif
+            const isMobile = window.innerWidth < 640;
+
             if (activeChartType === 'radar') {
                 globalChart = new Chart(ctx, {
                     type: 'radar',
@@ -670,23 +974,27 @@
                                 label: 'Jenjang S1 (Sarjana)',
                                 data: rS1,
                                 fill: true,
-                                backgroundColor: 'rgba(0, 92, 83, 0.2)', // brand-green
+                                backgroundColor: 'rgba(0, 92, 83, 0.22)', // brand-green
                                 borderColor: '#005C53',
+                                borderWidth: 2.5,
                                 pointBackgroundColor: '#005C53',
                                 pointBorderColor: '#fff',
                                 pointHoverBackgroundColor: '#fff',
-                                pointHoverBorderColor: '#005C53'
+                                pointHoverBorderColor: '#005C53',
+                                pointRadius: 4.5
                             },
                             {
-                                label: 'Jenjang S2/S3/Profesi',
+                                label: 'Pasca & Profesi',
                                 data: rNonS1,
                                 fill: true,
-                                backgroundColor: 'rgba(197, 168, 128, 0.25)', // brand-gold
+                                backgroundColor: 'rgba(197, 168, 128, 0.28)', // brand-gold
                                 borderColor: '#C5A880',
+                                borderWidth: 2.5,
                                 pointBackgroundColor: '#C5A880',
                                 pointBorderColor: '#fff',
                                 pointHoverBackgroundColor: '#fff',
-                                pointHoverBorderColor: '#C5A880'
+                                pointHoverBorderColor: '#C5A880',
+                                pointRadius: 4.5
                             }
                         ]
                     },
@@ -695,7 +1003,12 @@
                         maintainAspectRatio: false,
                         plugins: {
                             legend: {
-                                labels: { color: labelColor, font: { family: 'Inter', size: 11, weight: 'bold' } }
+                                position: 'top',
+                                labels: { 
+                                    color: labelColor, 
+                                    font: { family: 'Inter', size: 12, weight: '600' },
+                                    padding: 15
+                                }
                             },
                             tooltip: { backgroundColor: tooltipBg }
                         },
@@ -705,13 +1018,15 @@
                                 angleLines: { color: gridColor },
                                 pointLabels: {
                                     color: labelColor,
-                                    font: { family: 'Georgia', size: 13, weight: 'bold' }
+                                    font: { family: 'Inter', size: 12, weight: 'bold' }
                                 },
                                 ticks: {
                                     backdropColor: 'transparent',
                                     color: labelColor,
                                     stepSize: 2,
-                                    precision: 0
+                                    precision: 0,
+                                    showLabelBackdrop: false,
+                                    font: { family: 'Inter', size: 10 }
                                 }
                             }
                         }
@@ -722,7 +1037,7 @@
                 globalChart = new Chart(ctx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Unggul', 'Baik Sekali', 'Baik', 'Terakreditasi Sementara'],
+                        labels: ['Unggul', 'Baik Sekali', 'Baik', 'Sementara'],
                         datasets: [{
                             data: [unggul, baikSekali, baik, terakreditasi],
                             backgroundColor: [
@@ -738,11 +1053,15 @@
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        cutout: '60%',
+                        cutout: '65%',
                         plugins: {
                             legend: {
-                                position: 'right',
-                                labels: { color: labelColor, font: { family: 'Inter', size: 12 } }
+                                position: isMobile ? 'bottom' : 'right',
+                                labels: { 
+                                    color: labelColor, 
+                                    font: { family: 'Inter', size: 12, weight: '600' },
+                                    padding: isMobile ? 12 : 20
+                                }
                             },
                             tooltip: { backgroundColor: tooltipBg }
                         }
@@ -769,7 +1088,7 @@
                                 '#F59E0B',
                                 '#F43F5E'
                             ],
-                            borderWidth: 1
+                            borderWidth: 1.5
                         }]
                     },
                     options: {
@@ -782,7 +1101,7 @@
                         scales: {
                             x: {
                                 grid: { display: false },
-                                ticks: { color: labelColor, font: { family: 'Georgia', size: 12, weight: 'bold' } }
+                                ticks: { color: labelColor, font: { family: 'Inter', size: 12, weight: '600' } }
                             },
                             y: {
                                 grid: { color: gridColor },
@@ -857,6 +1176,12 @@
             btnGrid.classList.remove('bg-slate-900', 'dark:bg-slate-100', 'text-white', 'dark:text-slate-900');
             btnGrid.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300', 'border-slate-300');
             render();
+        });
+
+        // Event listener saat resize window untuk re-render chart agar legibilitas terjaga
+        window.addEventListener('resize', () => {
+            const filtered = filterData();
+            renderAkreditasiChart(filtered);
         });
 
         // Dark/Light Theme Handler
